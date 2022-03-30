@@ -24,6 +24,7 @@ void learnlist(){
 	for(auto i:l)
 		cout<<i<<" ";
 }
+
 int main(int argc, char const *argv[])
 {
 	/*pair<int,int> p= {1,2};
@@ -36,4 +37,5 @@ int main(int argc, char const *argv[])
 		cout<<arr[i].first<<" "<<arr[i].second<<"\n";
 	}*/
 	learnlist();
+	
 }
