@@ -18,3 +18,11 @@ public class variable {
         System.out.println(k);
     }
 }
+/*
+naming Convinsion
+interface : adjective
+class: noun{ }
+method:verb
+Variable: {Detailed e.g. stockprice, bank details}
+conttant: {Detailed}
+ */
