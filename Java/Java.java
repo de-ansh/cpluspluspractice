@@ -10,6 +10,6 @@ public class Java {
         else
             System.out.println("It's small");
         int b=in.nextInt();
-        
+        System.out.println(b);
     }
 }
