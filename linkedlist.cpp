@@ -15,18 +15,22 @@ node *takeinput(){
 	int data;
 	cin>>data;
 	node *head=NULL;
+	node *tail=NULL;
 	while(data!=0){
 		node *newnode=new node(data);
 		if (head==NULL)
 		{
 			head=newnode;
+			tail=newnode;
 		}
 		else{
-			node *temp=head;
+			/*node *temp=head;
 			while(temp->next!=NULL){
 				temp=temp->next;
-			}
-			temp->next=newnode;
+			}*/
+			tail->next=newnode;
+			tail=tail->next;
+			//tail=newnode;
 		}
 
 		cin>>data;
@@ -34,11 +38,16 @@ node *takeinput(){
 	}
 	return head;
 }
-void  print(node *temp){
+void  print(node *temp,int i){
+	int cnt=0;
 	while(temp!=NULL){
-		cout<<temp->data<<"->";
-		temp=temp->next;
+		cnt++;
+		if(cnt==i)
+			cout<<temp->data;
 	}
+
+	cout<<"\n";
+	//cout<<cnt;
 }
 
 int main(int argc, char const *argv[])
@@ -51,6 +60,6 @@ int main(int argc, char const *argv[])
 	n3->next=n4;*/
 
 	node *temp=takeinput();
-	print(temp);
+	print(temp,3);
 	return 0;
 }
