@@ -14,9 +14,15 @@ public:
 int main(int argc, char const *argv[])
 {
 	node n1(1);
-
-	node n2(2);
-	n1.next=&n2;
-	cout<<n1.data<<"->"<<n2.data;	
+	node *head=&n1;
+	node *n3=new node(10);
+	node *n4=new node(20);
+	head->next=n3;
+	n3->next=n4;
+	node *temp=head;
+	while(temp!=NULL){
+		cout<<temp->data<<"->";
+		temp=temp->next;
+	}	
 	return 0;
 }
