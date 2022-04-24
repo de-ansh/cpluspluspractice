@@ -38,17 +38,32 @@ node *takeinput(){
 	}
 	return head;
 }
-void  print(node *temp,int i){
+void  print(node *temp){
 	int cnt=0;
 	while(temp!=NULL){
+		cout<<temp->data<<"->";
+		temp=temp->next;
 		cnt++;
-		if(cnt==i)
-			cout<<temp->data;
 	}
 
 	cout<<"\n";
 	//cout<<cnt;
 }
+void printIthNode(node *head, int i)
+{
+    if (head == NULL)
+    {
+        return;
+    }
+    node *temp = head;
+    while (i-- && temp != NULL)
+    {
+        temp = temp->next;
+    }
+    if (temp != NULL)
+        cout << temp->data;
+}
+
 
 int main(int argc, char const *argv[])
 {
@@ -60,6 +75,6 @@ int main(int argc, char const *argv[])
 	n3->next=n4;*/
 
 	node *temp=takeinput();
-	print(temp,3);
+	printIthNode(temp,3);
 	return 0;
 }
