@@ -64,6 +64,21 @@ void printIthNode(node *head, int i)
         cout << temp->data;
 }
 
+node *helper(node *curr, node*prev){
+        if(curr==NULL)
+            return prev;
+        node *newnode= curr->next;
+        curr->next=prev;
+        return helper(newnode,curr); 
+    }
+node* reverseList(node* head) {
+        return helper(head,NULL);
+}
+void deleteNode(node* node) {
+        int val = node ->next->data;
+        node->next=node->next->next;
+        node->data=val;
+   }
 
 int main(int argc, char const *argv[])
 {
@@ -75,6 +90,10 @@ int main(int argc, char const *argv[])
 	n3->next=n4;*/
 
 	node *temp=takeinput();
-	printIthNode(temp,3);
+	//printIthNode(temp,3);
+	//reverseList(temp);
+	deleteNode(temp->next->next);
+	print(temp);
+
 	return 0;
 }
