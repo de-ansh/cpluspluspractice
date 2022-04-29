@@ -74,11 +74,46 @@ node *helper(node *curr, node*prev){
 node* reverseList(node* head) {
         return helper(head,NULL);
 }
-void deleteNode(node* node) {
-        int val = node ->next->data;
-        node->next=node->next->next;
-        node->data=val;
-   }
+node* deleteNode(node* head, int i) {
+	int count=0;
+	node *temp=head;
+	if(i==0){
+		head->data=temp->next->data;
+		head->next=temp->next->next;
+		return head;
+	}
+	while(temp!=NULL && count<i-1){
+		temp=temp->next;
+		count++;
+	}
+	if(temp!=NULL){
+		int val = temp ->next->data;
+        temp->next=temp->next->next;
+        temp->data=val;
+	}
+     return head;   
+}
+node* insertNode(node *head, int i, int n){
+
+	node *newnode= new node(n);
+	int count=0;
+	node *temp=head;
+	if(i==0){
+		newnode->next=head;
+		head=newnode;
+		return head;
+	}
+	while(temp!=NULL && count<i-1){
+		temp=temp->next;
+		count++;
+	}
+	if(temp!=NULL){
+		newnode->next=temp->next;
+		temp->next=newnode;
+	}
+	return head;
+}
+
 
 int main(int argc, char const *argv[])
 {
@@ -89,11 +124,16 @@ int main(int argc, char const *argv[])
 	head->next=n3;
 	n3->next=n4;*/
 
-	node *temp=takeinput();
+	node *head=takeinput();
 	//printIthNode(temp,3);
+	//int data, i;
+	//cin>>data>>i;
+	int i;
+	cin>>i;
 	//reverseList(temp);
-	deleteNode(temp->next->next);
-	print(temp);
+	head=deleteNode(head,i);
+	//head=insertNode(head,i,data);
+	print(head);
 
 	return 0;
 }
