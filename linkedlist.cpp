@@ -113,8 +113,48 @@ node* insertNode(node *head, int i, int n){
 	}
 	return head;
 }
+int ListSize(node *head){
+	if(head==NULL)
+		return 0;
+	else
+		return 1+ListSize(head->next);
+}
+node *InsertNode(node *head, int data, int i)
+{
+	if(head==NULL)
+		return head;
+	else 
+		head->next=InsertNode(head->next,data, i-1);
+}
+int index(node * head, int k,int n){
+	node *temp=head;
+	
+	for(int i=0;i<n;i++){
+		if(temp->data==k)
+			return i;
+		else
+			temp=temp->next;
+	}
+	return -1;
+}
+node * AppendLasttoFirst(node * head,int size, int n){
+	int count =size-n;
+	int i=0;
+	node *temp=head;
+	while(i<=count){
+		temp=temp->next;
+		i++;
+	}
+	node *h2=temp->next;
+	temp->next=NULL;
+	node *tail=h2;
+	while(tail!=NULL){
+		tail=tail->next;
+	}
+	tail->next=head;
+	return h2;
 
-
+}
 int main(int argc, char const *argv[])
 {
 	/*node n1(1);
@@ -128,12 +168,17 @@ int main(int argc, char const *argv[])
 	//printIthNode(temp,3);
 	//int data, i;
 	//cin>>data>>i;
-	int i;
-	cin>>i;
+	//int i;
+	//cin>>i;
 	//reverseList(temp);
-	head=deleteNode(head,i);
+	//head=deleteNode(head,i);
 	//head=insertNode(head,i,data);
-	print(head);
+	//print(head);
 
+	cout<<endl;
+	int n=ListSize(head);
+	//cout<<index(head, 14,n);
+	head= AppendLasttoFirst(head, n,5);
+	print(head);
 	return 0;
 }

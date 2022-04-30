@@ -7,9 +7,9 @@ int Binarysearch(int arr[], int n, int k){
 		if(arr[mid]==k)
 			return mid;
 		if(arr[mid]<k)
-			high=mid-1;
+			low=mid+1;
 		else 
-			low= mid+1;
+			high= mid-1;
 	}
 	
 }
