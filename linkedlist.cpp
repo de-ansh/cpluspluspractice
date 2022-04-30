@@ -155,6 +155,37 @@ node * AppendLasttoFirst(node * head,int size, int n){
 	return h2;
 
 }
+ node* deleteDuplicates(node* head) {
+        if(head==NULL||head->next==NULL) return head;
+        node* temp= head;
+        while(temp->next!=NULL){
+            if(temp->data==temp->next->data){
+                node *del=temp->next;
+                temp->next=del->next;
+                delete del;
+            }
+            else{
+                temp=temp->next;
+            }
+        }
+        return head;
+    }
+node* swapNodes(node *head, int k)
+        {
+            node *fast = head, *slow = head, *n1=head;
+            for(int i=0;i<k-1;i++){
+                fast=fast->next;
+                n1=fast;
+            }
+            while(fast->next!=NULL){
+                fast=fast->next;
+                slow=slow->next;
+            }
+            int n1_val=n1->data;
+            n1->data=slow->data;
+            slow->data=n1_val;
+            return head;
+ }
 int main(int argc, char const *argv[])
 {
 	/*node n1(1);
@@ -178,7 +209,7 @@ int main(int argc, char const *argv[])
 	cout<<endl;
 	int n=ListSize(head);
 	//cout<<index(head, 14,n);
-	head= AppendLasttoFirst(head, n,5);
+	head= swapNodes(head,6);
 	print(head);
 	return 0;
 }
