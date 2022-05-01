@@ -13,11 +13,11 @@ int main(int argc, char const *argv[])
 	}
 	q.enqueue(110);
 	cout<<q.front()<<endl;
+	/*cout<<q.dequeue()<<endl;
 	cout<<q.dequeue()<<endl;
 	cout<<q.dequeue()<<endl;
 	cout<<q.dequeue()<<endl;
-	cout<<q.dequeue()<<endl;
-	cout<<q.dequeue()<<endl;
+	cout<<q.dequeue()<<endl;*/
 	cout<<q.isempty()<<endl;
 	cout<<q.getSize()<<endl;
 	return 0;

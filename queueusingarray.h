@@ -21,8 +21,21 @@ public:
 	}
 	void enqueue(T element){
 		if(size==capacity){
-			cout<<"Queue is Full"<<endl;
-			return;
+			T *newdata= new T[2*capacity];
+			int j=0;
+			for(int i=firstIndex;i<capacity;i++){
+				newdata[j]=data[i];
+				j++;
+			}
+			for(int i=0;i<firstIndex;i++){
+				newdata[j]=data[i];
+				j++;
+			}
+			delete [] data;
+			data= newdata;
+			firstIndex=0;
+			nextIndex=capacity;
+
 		}
 		data[nextIndex]=element;
 		nextIndex= (nextIndex+1)%capacity;
