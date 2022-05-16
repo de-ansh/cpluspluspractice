@@ -1,21 +1,30 @@
 #include<bits/stdc++.h>
-using namespace std;
-int findDuplicate(int arr[], int n){
-    sort(arr,arr+n);
+using namespace std; 
+void binary(int arr[], int n){
+    int low=0,mid=0,high=n-1;
     for(int i=0;i<n;i++){
-        if(arr[i]==arr[i-1])
-            return arr[i];
+        if(arr[mid]==0){
+            swap(arr[mid],arr[low]);
+            low++;
+            mid++;
+        }
+        else if(arr[mid]==1)
+            mid++;
+        else{
+            swap(arr[mid],arr[high]);
+            high--;
+        }
     }
-    return -1;
 }
-int main(){
+int main(int argc, char const *argv[])
+{
     int n;
     cin>>n;
     int arr[n];
-    for(int i=0;i<n;i++){
+    for(int i=0;i<n;i++)
         cin>>arr[i];
-    }
-    cout<<findDuplicate(arr,n);
+    binary(arr,n);
+    for(auto it: arr)
+        cout<<it<<"\n";
     return 0;
-
 }
