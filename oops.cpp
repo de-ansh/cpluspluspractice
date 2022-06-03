@@ -1,39 +1,40 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-/*class Student{
-	public: 
-		int rollno;
-		int age;
-	
-
-};
-int main(int argc, char const *argv[])
+class hero
 {
-	Student s1;
-	s1.rollno= 24;
-	s1.age=12;
-	cout<<s1.age<<" ";
-	cout<<s1.rollno<<" "<<"\n";
-	Student s2;
-	s2.rollno=14;
-	s2.age=12;
-	cout<<s2.rollno<<" "<<s2.age<<"\n";
-	return 0;
-}*/
-class person{
-	char name[20];
-	int age;
-
-
+private:
+	char level;
 public:
-	getdetails()
-	{
-
+	int health;
+	
+	int getHealth(){
+		return health;
 	}
-
+	char getlevel(){
+		return level;
+	}
+	void setHealth(int h){
+		health=h;
+	}
+	void setLevel( char l){
+		level =l;
+	}
+	
 };
 int main(int argc, char const *argv[])
 {
-	person p1;
+
+	hero h1;
+	h1.health=70;
+	int h;
+	cin>>h;
+	char l;
+	cin>>l;
+	h1.setLevel(l);
+	h1.setHealth(h);
+	
+	cout<<h1.getHealth()<<"\n";
+		
+	
 	return 0;
 }
