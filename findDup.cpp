@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 int find(int arr[], int n){
-	sort(arr,arr+n);
+	
 	for(int i=0;i<n;i++){
 		if(arr[i]==arr[i+1])
 			return i;
